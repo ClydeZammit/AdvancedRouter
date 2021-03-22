@@ -14,12 +14,26 @@
       </div>
     <router-view :task="task"/>
     </div>
+
+    <div class="modal fade" id="exampleModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>{{GStore.flashMessage}}</p>
+        </div>
+        <div class="modal-footer">
+          <button @click="$router.push({ path: '/' })" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
 </template>
 
 <script>
 import TasksService from '@/services/TasksService.js'
 export default {
   props: ['id'],
+  inject: ['GStore'],
   data () {
     return {
       task: null

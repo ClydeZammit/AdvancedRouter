@@ -1,6 +1,6 @@
 <template>
   <p>Delete {{task.title}}</p>
-  <button @click="deleteTask" type="button" class="btn btn-secondary">Delete Task</button>
+  <button @click="deleteTask" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" >Delete Task</button>
 </template>
 
 <script>
