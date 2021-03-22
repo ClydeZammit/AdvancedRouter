@@ -1,11 +1,17 @@
 <template>
     <div v-if="task" class="task-details">
         <h1>{{task.title}}</h1>
-        <div class="nav">
-          <router-link :to="{name: 'TaskDetails', params: {id}}">Details|</router-link>
-          <router-link :to="{name: 'TaskEdit', params: {id}}">Edit|</router-link>
-          <router-link :to="{name: 'TaskDelete', params: {id}}">Delete</router-link>
-        </div>
+        <div class="row">
+          <div class="col-sm">
+            <router-link class="router" :to="{name: 'TaskDetails', params: {id}}">Details</router-link>
+          </div>
+          <div class="col-sm">
+            <router-link class="router" :to="{name: 'TaskEdit', params: {id}}">Edit</router-link>
+          </div>
+          <div class="col-sm">
+            <router-link class="router" :to="{name: 'TaskDelete', params: {id}}">Delete</router-link>
+          </div>
+      </div>
     <router-view :task="task"/>
     </div>
 </template>
@@ -38,6 +44,19 @@ export default {
     border:1px solid black;
     width:40%;
     margin:15px auto;
-    padding:10px;
+    padding:15px;
+}
+.col-sm{
+  background-color: black;
+}
+.router{
+  color: white;
+}
+.router:hover{
+  color: yellow;
+  text-decoration: none;
+}
+.router-link-exact-active{
+  color: lightgreen;
 }
 </style>
