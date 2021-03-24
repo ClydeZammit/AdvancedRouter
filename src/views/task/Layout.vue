@@ -22,7 +22,7 @@
             <p>{{GStore.flashMessage}}</p>
           </div>
           <div class="modal-footer">
-            <button @click="myMet" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button @click="startTimer" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -40,12 +40,12 @@ export default {
     }
   },
   methods: {
-    myMet () {
+    startTimer () {
       setTimeout(() => {
         this.GStore.flashMessage = ''
       }, 5000)
       this.$router.push({
-        name: '/'
+        name: 'TaskDetails'
       })
     }
   },
