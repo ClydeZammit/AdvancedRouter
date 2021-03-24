@@ -11,9 +11,6 @@ export default {
     deleteTask () {
       console.log('Task Deleted')
       this.GStore.flashMessage = this.task.title + ' was deleted'
-      setTimeout(() => {
-        this.GStore.flashMessage = ''
-      }, 5000)
       this.$router.push({
         name: 'TaskDetails'
       })

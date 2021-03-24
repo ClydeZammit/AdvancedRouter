@@ -16,17 +16,17 @@
     </div>
 
     <div class="modal fade" id="exampleModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <p>{{GStore.flashMessage}}</p>
-        </div>
-        <div class="modal-footer">
-          <button @click="$router.push({ path: '/' })" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>{{GStore.flashMessage}}</p>
+          </div>
+          <div class="modal-footer">
+            <button @click="myMet" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -39,7 +39,16 @@ export default {
       task: null
     }
   },
-
+  methods: {
+    myMet () {
+      setTimeout(() => {
+        this.GStore.flashMessage = ''
+      }, 5000)
+      this.$router.push({
+        name: '/'
+      })
+    }
+  },
   created () {
     TasksService.getTask(this.id)
       .then(response => {
